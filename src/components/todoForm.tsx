@@ -18,16 +18,19 @@ export default function TodoForm() {
       return await response.json();
     },
     onSuccess: () => {
-      // 쿼리 무효화로 할 일 목록 갱신
       queryClient.invalidateQueries({
         queryKey: ['todos'],
       });
     },
   });
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // 여기서 newTodo의 타입은 { title: string; content: string } 입니다.
+  const handleSubmit = async () => {
+    if (!title || !content) {
+      alert(`제목과 내용을 모두 입력해주세요.`);
+      return;
+    }
+    if (!window.confirm(`할일을 등록하시겠습니까?`)) return;
+
     newTodoMutation.mutate({ title, content, isDone: false });
     setTitle('');
     setContent('');

@@ -23,13 +23,16 @@ export async function GET(request: Request): Promise<Response> {
 
   export async function POST(request: Request): Promise<Response> {
     try {
-        const data = await request.json(); 
+        const {title, content} = await request.json(); 
+        if (!title || !content) {
+            return new Response(JSON.stringify({ error: 'Title and contents are required.' }), { status: 400 });
+        }
         const response = await fetch(`http://localhost:4000/todos`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data), 
+            body: JSON.stringify({ title, content, isDone: false }), 
         });
         const todoItem: Todos = await response.json();
 
