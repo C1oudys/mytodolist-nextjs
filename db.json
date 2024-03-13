@@ -1,15 +1,15 @@
 {
   "companyInfo": {
-    "name": "주식회사 팀스파르타",
-    "desctiption": "우리회사에 대한 설명입니다. blablabla~~~~~~",
-    "image": "http://~~~~"
+    "name": "Don't think! Just Do!",
+    "description": "계획만 가지고 실행을 하지 않는 사람들을 위한 회사",
+    "image": "https://i.pinimg.com/originals/56/7a/20/567a20e89017be3974a8d93c1fadab25.jpg"
   },
   "todos": [
     {
       "id": "1",
       "title": "커피 마시기",
       "content": "아메리카노 마시기",
-      "isDone": false
+      "isDone": true
     },
     {
       "id": "2",
@@ -21,27 +21,19 @@
       "id": "3",
       "title": "과제 완성하기",
       "content": "내일까지 기능구현 완성시키기",
-      "isDone": false
+      "isDone": true
     },
     {
       "id": "22f9",
       "title": "테스트",
-      "content": "테스트1"
+      "content": "테스트1",
+      "isDone": false
     },
     {
       "id": "8caf",
       "title": "ㅇ",
-      "content": "ㅇ"
-    },
-    {
-      "id": "3637",
-      "title": "ㅇㄴㅁㅇ",
-      "content": "ㄴㅇㅁ"
-    },
-    {
-      "id": "5c18",
-      "title": "ㅁㄴㅇ",
-      "content": "ㅁㄴㅇ"
+      "content": "ㅇ",
+      "isDone": false
     }
   ]
 }

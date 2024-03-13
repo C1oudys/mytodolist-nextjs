@@ -7,7 +7,7 @@ export default function TodoForm() {
   const queryClient = useQueryClient();
 
   const newTodoMutation = useMutation({
-    mutationFn: async (newTodo: { title: string; content: string }) => {
+    mutationFn: async (newTodo: { title: string; content: string; isDone: boolean,  }) => {
       const response = await fetch(`http://localhost:3000/api/todos`, {
         method: 'POST',
         headers: {
@@ -28,7 +28,7 @@ export default function TodoForm() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // 여기서 newTodo의 타입은 { title: string; content: string } 입니다.
-    newTodoMutation.mutate({ title, content });
+    newTodoMutation.mutate({ title, content, isDone: false });
     setTitle('');
     setContent('');
   };
