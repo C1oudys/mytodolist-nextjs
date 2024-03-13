@@ -1,0 +1,47 @@
+{
+  "companyInfo": {
+    "name": "주식회사 팀스파르타",
+    "desctiption": "우리회사에 대한 설명입니다. blablabla~~~~~~",
+    "image": "http://~~~~"
+  },
+  "todos": [
+    {
+      "id": "1",
+      "title": "커피 마시기",
+      "content": "아메리카노 마시기",
+      "isDone": false
+    },
+    {
+      "id": "2",
+      "title": "방 청소하기",
+      "content": "귀찮아...",
+      "isDone": true
+    },
+    {
+      "id": "3",
+      "title": "과제 완성하기",
+      "content": "내일까지 기능구현 완성시키기",
+      "isDone": false
+    },
+    {
+      "id": "22f9",
+      "title": "테스트",
+      "content": "테스트1"
+    },
+    {
+      "id": "8caf",
+      "title": "ㅇ",
+      "content": "ㅇ"
+    },
+    {
+      "id": "3637",
+      "title": "ㅇㄴㅁㅇ",
+      "content": "ㄴㅇㅁ"
+    },
+    {
+      "id": "5c18",
+      "title": "ㅁㄴㅇ",
+      "content": "ㅁㄴㅇ"
+    }
+  ]
+}
