@@ -4,7 +4,7 @@ import { Todos } from '../types';
 async function ReportPage() {
   const response = await fetch(`http://localhost:3000/api/todos`, { next: { revalidate: 10 } });
   const { todosList }: { todosList: Todos[] } = await response.json();
-  const todoList = todosList.filter((item) => item.isDone === false);
+  const doingList = todosList.filter((item) => item.isDone === false);
   const doneList = todosList.filter((item) => item.isDone === true);
 
   return (
@@ -16,7 +16,7 @@ async function ReportPage() {
             현재 <span className="font-semibold ">{todosList.length}개</span>의 할일이
             있습니다.
             <br />
-            해야할 할일은 <span className="font-semibold">{todoList.length}개</span>, 끝낸 할일은{' '}
+            해야할 할일은 <span className="font-semibold">{doingList.length}개</span>, 끝낸 할일은{' '}
             <span className="font-semibold">{doneList.length}개</span>가 있습니다.
           </p>
         </div>
