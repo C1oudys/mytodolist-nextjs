@@ -5,8 +5,6 @@ async function AboutPage() {
   const response = await fetch(`http://localhost:3000/api/company`);
   const { data }: { data: CompanyInfo } = await response.json();
 
-  console.log("회사정보:", data);
-
   return (
     <main>
         <h1 className="text-2xl mb-6">회사 소개</h1>

@@ -7,7 +7,6 @@ async function TodoSsrPage() {
     cache: "no-cache",
   });
   const todoList: Todos[] = await response.json();
-  console.log("받아온 todo", todoList);
 
   const doingList = todoList.filter((todo: Todos) => !todo.isDone);
   const doneList = todoList.filter((todo: Todos) => todo.isDone);
