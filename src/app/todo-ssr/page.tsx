@@ -10,6 +10,8 @@ async function TodoSsrPage() {
   const todoList: TodoList[] = await response.json();
   console.log("받아온 todo", todoList)
 
+  const doingList = todoList.filter(todo => !todo.isDone);
+  const doneList = todoList.filter(todo => todo.isDone);
 
   return (
     <div className="container mx-auto px-4">
