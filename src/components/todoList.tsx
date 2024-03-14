@@ -88,42 +88,42 @@ export default function TodoList() {
       <h2 className="text-xl font-bold my-4">Doing</h2>
       <ul>
         {doingList.map((todo) => (
-          <li key={todo.id} className="bg-white text-black shadow-md rounded-lg p-4 mb-4 flex justify-between items-center">
-            <div>
-              <p className="text-lg font-semibold">{todo.title}</p>
-              <p>{todo.content}</p>
-              <input
-                type="checkbox"
-                checked={todo.isDone}
-                onChange={() => toggleIsDoneHandler(todo.id, todo.isDone)}
-                className="form-checkbox mt-3 h-5 w-5 text-green-500 rounded"
-              />
-            </div>
-            <button
-              onClick={() => handleDeleteConfirmation(todo.id)}
-              className="flex items-center bg-red-500 text-white px-2 py-1 rounded-full shadow hover:bg-red-600 transition duration-300"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-              삭제
-            </button>
-          </li>
-        ))}
-      </ul>
+           <li key={todo.id} className="bg-white bg-opacity-90 text-black shadow-md rounded-lg p-4 mb-4 flex justify-between items-center">
+           <input
+             type="checkbox"
+             checked={todo.isDone}
+             onChange={() => toggleIsDoneHandler(todo.id, todo.isDone)}
+             className="form-checkbox h-5 w-5 text-green-500 rounded mr-4"
+           />
+           <div>
+             <p className={`text-lg font-semibold ${todo.isDone ? "line-through" : ""}`}>{todo.title}</p>
+             <p className={`${todo.isDone ? "line-through" : ""}`}>{todo.content}</p>
+           </div>
+           <button
+             onClick={() => handleDeleteConfirmation(todo.id)}
+             className="flex items-center bg-red-500 text-white px-2 py-1 rounded-full shadow hover:bg-red-600 transition duration-300 ml-auto"
+           >
+             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+             </svg>
+             삭제
+           </button>
+         </li>
+       ))}
+     </ul>
       <h2 className="text-xl font-bold my-4">Done</h2>
       <ul>
         {doneList.map((todo) => (
-          <li key={todo.id} className="bg-white text-black shadow-md rounded-lg p-4 mb-4 flex justify-between items-center">
+          <li key={todo.id} className="bg-white bg-opacity-70 text-black shadow-md rounded-lg p-4 mb-4 flex justify-between items-center">
+            <input
+              type="checkbox"
+              checked={todo.isDone}
+              onChange={() => toggleIsDoneHandler(todo.id, todo.isDone)}
+              className="form-checkbox h-5 w-5 text-green-500 rounded mr-4"
+            />
             <div>
               <p className={`text-lg font-semibold ${todo.isDone ? "line-through" : ""}`}>{todo.title}</p>
               <p className={`${todo.isDone ? "line-through" : ""}`}>{todo.content}</p>
-              <input
-                type="checkbox"
-                checked={todo.isDone}
-                onChange={() => toggleIsDoneHandler(todo.id, todo.isDone)}
-                className="form-checkbox mt-3 h-5 w-5 text-green-500 rounded"
-              />
             </div>
             <button
               onClick={() => handleDeleteConfirmation(todo.id)}

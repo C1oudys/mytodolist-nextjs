@@ -45,7 +45,7 @@
       "id": "3489",
       "title": "삭제 기능 오류 수정",
       "content": "삭제는 잘되는것 같은데 오류 발생.. 뭐지..?",
-      "isDone": false
+      "isDone": true
     },
     {
       "id": "aeac",
