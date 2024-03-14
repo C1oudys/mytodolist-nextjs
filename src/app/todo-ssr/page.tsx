@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Todos } from '@/app/types';
+import ReportLinkButton from '../../components/reportLink'
 
 async function TodoSsrPage() {
   const response = await fetch("http://localhost:4000/todos", {
@@ -13,6 +14,9 @@ async function TodoSsrPage() {
 
   return (
     <div className="container mx-auto px-4">
+      <div className="flex justify-center"> 
+        <ReportLinkButton />
+      </div>
       <h2 className="text-xl font-bold my-4">Doing</h2>
       <ul>
       {doingList.map((todo: Todos) => (

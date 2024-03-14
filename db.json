@@ -15,7 +15,7 @@
       "id": "2",
       "title": "방 청소하기",
       "content": "귀찮아...",
-      "isDone": false
+      "isDone": true
     },
     {
       "id": "3",
