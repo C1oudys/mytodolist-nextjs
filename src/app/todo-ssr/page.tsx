@@ -2,15 +2,14 @@ import React from 'react';
 import type { Todos } from '@/app/types';
 
 async function TodoSsrPage() {
-  const response = await fetch("http://localhost:3000/api/todos", {
+  const response = await fetch("http://localhost:4000/todos", {
     cache: "no-cache",
   });
-  const result = await response.json(); // 결과를 result에 할당
-  console.log("받아온 todo", result);
+  const todoList: Todos[] = await response.json();
+  console.log("받아온 todo", todoList);
 
-  // result에서 todosList를 추출하여 사용
-  const doingList = result.todosList.filter((todo: Todos) => !todo.isDone);
-  const doneList = result.todosList.filter((todo: Todos) => todo.isDone);
+  const doingList = todoList.filter((todo: Todos) => !todo.isDone);
+  const doneList = todoList.filter((todo: Todos) => todo.isDone);
 
   return (
     <div className="container mx-auto px-4">
