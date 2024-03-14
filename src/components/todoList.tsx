@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import type { TodoList, UpdateTodo } from '@/app/types';
@@ -52,7 +53,7 @@ export default function TodoList() {
             "Content-Type": "application/json",
           },
         });
-      },
+    },
       onSuccess: () => {
         queryClient.invalidateQueries({ queryKey: ['todos'] });
       },
@@ -66,7 +67,7 @@ export default function TodoList() {
     const isConfirmed = window.confirm('정말 삭제하시겠습니까?');
     if (isConfirmed) {
       deleteMutate(id);
-      alert('삭제되었습니다. :)');
+      alert('삭제되었습니다. :)')
     }
   };
     

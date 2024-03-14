@@ -7,8 +7,9 @@ export async function DELETE(request: Request): Promise<Response> {
       method: 'DELETE'
     });
 
-    return new Response('Todo 삭제 완료', { status: 204 });
+    return new Response('Deleted!', { status: 200 });
   } catch (error) {
-    return new Response('서버 에러', { status: 500 });
+    console.log(error);
+    return new Response('Server', { status: 500 });
   }
 }

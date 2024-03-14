@@ -9,7 +9,7 @@
       "id": "3",
       "title": "과제 완성하기",
       "content": "내일까지 기능구현 완성시키기",
-      "isDone": false
+      "isDone": true
     },
     {
       "id": "d5b1",
@@ -52,6 +52,12 @@
       "title": "TODOS-CSR 완성하기",
       "content": "제일 먼저 끝내기",
       "isDone": true
+    },
+    {
+      "id": "fb9d",
+      "title": "버텍스 먹고싶다..",
+      "content": "주말에 시켜먹어야지..!",
+      "isDone": false
     }
   ]
 }

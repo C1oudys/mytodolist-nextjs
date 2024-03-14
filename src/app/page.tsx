@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center mt-20">
+    <main className="flex flex-col items-center justify-center mt-14">
       <video autoPlay loop muted src="/assets/justdovideo.mp4" className="w-500 rounded-md shadow-lg" />
       <a href="https://www.youtube.com/watch?v=B9LIYb3BIQ8" className="text-blue-500 hover:underline mt-2">Watch on YouTube</a>
       <div className="mt-8 text-center">
