@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import type { TodoList, UpdateTodo } from '@/app/types';
@@ -98,9 +96,18 @@ export default function TodoList() {
                 type="checkbox"
                 checked={todo.isDone}
                 onChange={() => toggleIsDoneHandler(todo.id, todo.isDone)}
-                className="form-checkbox h-5 w-5 text-green-500 rounded"
+                className="form-checkbox mt-3 h-5 w-5 text-green-500 rounded"
               />
             </div>
+            <button
+              onClick={() => handleDeleteConfirmation(todo.id)}
+              className="flex items-center bg-red-500 text-white px-2 py-1 rounded-full shadow hover:bg-red-600 transition duration-300"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              삭제
+            </button>
           </li>
         ))}
       </ul>
@@ -115,15 +122,18 @@ export default function TodoList() {
                 type="checkbox"
                 checked={todo.isDone}
                 onChange={() => toggleIsDoneHandler(todo.id, todo.isDone)}
-                className="form-checkbox h-5 w-5 text-green-500 rounded"
+                className="form-checkbox mt-3 h-5 w-5 text-green-500 rounded"
               />
-              <button
-                    onClick={() => handleDeleteConfirmation(todo.id)}
-                    className="bg-red-500 w-14 rounded-2xl"
-                  >
-                    삭제
-                  </button>
             </div>
+            <button
+              onClick={() => handleDeleteConfirmation(todo.id)}
+              className="flex items-center bg-red-500 text-white px-2 py-1 rounded-full shadow hover:bg-red-600 transition duration-300 ml-auto"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              삭제
+            </button>
           </li>
         ))}
       </ul>
