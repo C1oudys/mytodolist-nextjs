@@ -19,6 +19,7 @@
 body {
   background-color: rgb(32, 35, 47); /* 중간 회색 */
   color: rgb(var(--foreground-rgb));
+  font-family: 'OAGothic-ExtraBold', sans-serif;
 }
 
 @layer utilities {
@@ -50,4 +51,12 @@ body {
 
 .hover-gradient-text:hover::after {
   opacity: 1;
+}
+
+@font-face {
+  font-family: 'OAGothic-ExtraBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/OAGothic-ExtraBold.woff2')
+    format('woff2');
+  font-weight: 800;
+  font-style: normal;
 }

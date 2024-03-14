@@ -8,7 +8,7 @@ async function ReportPage() {
   const doneList = todoList.filter((item: Todos) => item.isDone === true);
 
   return (
-    <main className="h-screen flex flex-col justify-start pt-20"> 
+    <main className="h-screen flex flex-col justify-start pt-10"> 
       <article>
         <div className="flex flex-col items-center">
           <h1 className="text-2xl mb-3.5 text-center">할일 통계</h1>
