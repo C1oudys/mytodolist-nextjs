@@ -24,3 +24,28 @@ body {
     text-wrap: balance;
   }
 }
+
+.hover-gradient-text {
+  position: relative;
+}
+
+.hover-gradient-text::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #ec4899, #fdba74, #fde047);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+
+.hover-gradient-text:hover::after {
+  opacity: 1;
+}

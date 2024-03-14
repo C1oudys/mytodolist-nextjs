@@ -19,13 +19,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <nav className="justify-center items-center w-100 h-20 flex gap-x-60 font-bold text-lg">
-          <Link href="/">HOME</Link>
-          <Link href="/about">ABOUT</Link>
-          <Link href="/report">REPORT</Link>
-          <Link href="/todo-csr">TODOS-CSR</Link>
-          <Link href="/todo-ssr">TODOS-SSR</Link>
-        </nav>
+      <nav className="justify-center items-center w-full bg-black h-20 flex gap-x-40 font-bold text-lg">
+      <Link href="/" className="text-white hover-gradient-text" data-text="HOME">HOME</Link>
+      <Link href="/about" className="text-white hover-gradient-text" data-text="ABOUT">ABOUT</Link>
+      <Link href="/report" className="text-white hover-gradient-text" data-text="REPORT">REPORT</Link>
+      <Link href="/todo-csr" className="text-white hover-gradient-text" data-text="TODOS-CSR">TODOS-CSR</Link>
+      <Link href="/todo-ssr" className="text-white hover-gradient-text" data-text="TODOS-SSR">TODOS-SSR</Link>
+      </nav>
         <QueryProvider>{children}</QueryProvider>
       </body>
     </html>
