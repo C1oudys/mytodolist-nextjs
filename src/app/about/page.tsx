@@ -3,23 +3,22 @@ import { CompanyInfo } from '../types';
 
 async function AboutPage() {
   const response = await fetch(`http://localhost:3000/api/company`);
-  const { companyInfo }: { companyInfo: CompanyInfo } = await response.json();
+  const { data }: { data: CompanyInfo } = await response.json();
+
+  console.log("회사정보:", data);
 
   return (
     <main>
-      <article>
         <h1 className="text-2xl mb-6">회사 소개</h1>
         <div>
-          <img src={companyInfo.image} alt="회사 이미지" style={{ borderRadius: '12px', width: '350px' }} />
+          <img src={data.image} alt="회사 이미지" />
         </div>
         <div className="flex flex-col text-center">
-          <p >{companyInfo.name}</p>
+          <p >{data.name}</p>
           <p >
-            {companyInfo.description}
-            <br />
+            {data.description}
           </p>
         </div>
-      </article>
     </main>
   );
 }

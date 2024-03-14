@@ -12,3 +12,5 @@ export type CompanyInfo = {
   };
   
   export type TodoList = Todos[];
+
+  export type UpdateTodo = Omit<Todos, 'title' | 'content'>;

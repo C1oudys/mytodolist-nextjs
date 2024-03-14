@@ -21,7 +21,7 @@ export async function GET(request: Request): Promise<Response> {
     }
 }
 
-  export async function POST(request: Request): Promise<Response> {
+export async function POST(request: Request): Promise<Response> {
     try {
         const {title, content} = await request.json(); 
         if (!title || !content) {
@@ -40,5 +40,19 @@ export async function GET(request: Request): Promise<Response> {
     } catch (error) {
         console.error(`Error:`, error);
         return new Response("Server Error :(", { status: 500 });
+    }
+}
+
+export async function PATCH(request: Request) {
+    try {
+        const { isDone, id } = await request.json();
+        await fetch(`http://localhost:4000/todos/${id}`, {
+            method: 'PATCH',
+            body: JSON.stringify({ id, isDone }),
+          });
+          return new Response('Todo State Updated', { status: 200 });
+  } catch (error) {
+    console.error(`Error`, error);
+    return new Response('Server Error :(', { status: 500 });
     }
 }

@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react'
+import React from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { TodoList } from '@/app/types';
+import type { TodoList, UpdateTodo } from '@/app/types';
 
 export default function TodoList() {
   const queryClient = useQueryClient();
@@ -12,58 +12,88 @@ export default function TodoList() {
       try {
         const response = await fetch(`http://localhost:3000/api/todos`);
         const { todosList } = await response.json();
-        console.log(`불러온 데이터`, todosList);
         return todosList;
       } catch (error) {
         console.log(`데이터 불러오기 실패`);
         return [];
       }
     }
-  });
+  }); 
 
-  const deleteTodoMutation = useMutation({
-    mutationFn: async (id: string) => {
-      await fetch(`http://localhost:3000/api/todos/${id}`, {
-      method: 'DELETE',
+  const toggleIsDoneHandler = (id: string, isDone: boolean) => {
+    const updatedTodo = {
+      id: id,
+      isDone: !isDone
+    };
+    isDoneMutation.mutate(updatedTodo, {
+      onSuccess: () => {
+        queryClient.invalidateQueries({ queryKey: ['todos'] });
+      }
     });
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({
-        queryKey: ['todos'],
-      });
-    },
-  });
+  };
 
-  if ( isLoading ) {
-    return <div>Loading...</div>
+  const isDoneMutation = useMutation({
+    mutationFn: async (updatedTodo: UpdateTodo) => {
+      try {
+        await fetch(`http://localhost:3000/api/todos`, {
+          method: 'PATCH',
+          body: JSON.stringify({ id: updatedTodo.id, isDone: updatedTodo.isDone })
+        });
+      } catch (error) {
+        console.log('error', error);
+      }
+    }
+  });
+    
+  if (isLoading) {
+    return <div>Loading...</div>;
   }
-  if ( error ) {
+  if (error) {
     return <div>Data Error.. Help..! {error.message}</div>;
   }
-  if ( !data ) {
+  if (!data) {
     return <div>No data found!</div>;
   }
 
-  const doingList: TodoList = data.filter((item) => !item.isDone);
-  const doneList: TodoList = data.filter((item) => item.isDone);
+  const doingList: TodoList = data.filter((todo) => !todo.isDone);
+  const doneList: TodoList = data.filter((todo) => todo.isDone);
 
   return (
-    <div>
-    <h2>Doing</h2>
-    <ul>
-      {doingList.map((item) => (
-        <li key={item.id}>
-        {item.title}<br />{item.content}
-        <button onClick={() => deleteTodoMutation.mutate(item.id)}>Delete</button>
-      </li>
-      ))}
-    </ul>
-    <h2>Done</h2>
-    <ul>
-      {doneList.map((item) => (
-        <li key={item.id}>{item.title}<br />{item.content}</li>
-      ))}
-    </ul>
-  </div>
+    <div className="container mx-auto px-4">
+      <h2 className="text-xl font-bold my-4">Doing</h2>
+      <ul>
+        {doingList.map((todo) => (
+          <li key={todo.id} className="bg-white shadow-md rounded-lg p-4 mb-4 flex justify-between items-center">
+            <div>
+              <p className="text-lg font-semibold">{todo.title}</p>
+              <p>{todo.content}</p>
+              <input
+                type="checkbox"
+                checked={todo.isDone}
+                onChange={() => toggleIsDoneHandler(todo.id, todo.isDone)}
+                className="form-checkbox h-5 w-5 text-green-500 rounded"
+              />
+            </div>
+          </li>
+        ))}
+      </ul>
+      <h2 className="text-xl font-bold my-4">Done</h2>
+      <ul>
+        {doneList.map((todo) => (
+          <li key={todo.id} className="bg-white shadow-md rounded-lg p-4 mb-4 flex justify-between items-center">
+            <div>
+              <p className={`text-lg font-semibold ${todo.isDone ? "line-through" : ""}`}>{todo.title}</p>
+              <p className={`${todo.isDone ? "line-through" : ""}`}>{todo.content}</p>
+              <input
+                type="checkbox"
+                checked={todo.isDone}
+                onChange={() => toggleIsDoneHandler(todo.id, todo.isDone)}
+                className="form-checkbox h-5 w-5 text-green-500 rounded"
+              />
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
