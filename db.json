@@ -6,18 +6,6 @@
   },
   "todos": [
     {
-      "id": "1",
-      "title": "커피 마시기",
-      "content": "아메리카노 마시기",
-      "isDone": true
-    },
-    {
-      "id": "2",
-      "title": "방 청소하기",
-      "content": "귀찮아...",
-      "isDone": true
-    },
-    {
       "id": "3",
       "title": "과제 완성하기",
       "content": "내일까지 기능구현 완성시키기",
@@ -30,22 +18,40 @@
       "isDone": false
     },
     {
-      "id": "9fc0",
-      "title": "about 페이지 오류 수정하기",
-      "content": "왜 안돼 왜 안돼 왜 안돼 왜 안돼 왜 안돼 왜 안돼",
-      "isDone": true
-    },
-    {
-      "id": "8157",
-      "title": "TODOS-SSR 페이지 완성하기",
-      "content": "todoList의 목록을 SSR 렌더링 방식으로 나타내기",
-      "isDone": true
-    },
-    {
-      "id": "fb81",
-      "title": "CSS ",
-      "content": "CSS 는 제일 마지막에..",
+      "id": "076c",
+      "title": "CSS 작업하기",
+      "content": "CSS는 제일 마지막에..",
       "isDone": false
+    },
+    {
+      "id": "b0a3",
+      "title": "TODOS-SSR 페이지 완성하기",
+      "content": "내일까지 기능 구현 완료하기",
+      "isDone": true
+    },
+    {
+      "id": "c6bd",
+      "title": "ABOUT 페이지 오류 수정",
+      "content": "왜 안돼? 왜 안돼? 왜 안돼? 왜 안돼? 왜 안돼? 왜 안돼? 왜 안돼",
+      "isDone": true
+    },
+    {
+      "id": "2ce8",
+      "title": "REPORT 페이지 완성하기",
+      "content": "기능 구현은 끝! CSS 만",
+      "isDone": true
+    },
+    {
+      "id": "3489",
+      "title": "삭제 기능 오류 수정",
+      "content": "삭제는 잘되는것 같은데 오류 발생.. 뭐지..?",
+      "isDone": false
+    },
+    {
+      "id": "aeac",
+      "title": "TODOS-CSR 완성하기",
+      "content": "제일 먼저 끝내기",
+      "isDone": true
     }
   ]
 }

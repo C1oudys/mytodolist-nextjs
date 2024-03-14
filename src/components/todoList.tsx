@@ -44,6 +44,33 @@ export default function TodoList() {
       }
     }
   });
+
+  const deleteMutation = () => {
+    const { mutate: deleteMutate } = useMutation({
+      mutationFn: async (id: string) => {
+        await fetch(`http://localhost:3000/api/todos/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+      },
+      onSuccess: () => {
+        queryClient.invalidateQueries({ queryKey: ['todos'] });
+      },
+    });
+    return deleteMutate;
+  }
+
+  const deleteMutate = deleteMutation();
+
+  const handleDeleteConfirmation = (id: string) => {
+    const isConfirmed = window.confirm('정말 삭제하시겠습니까?');
+    if (isConfirmed) {
+      deleteMutate(id);
+      alert('삭제되었습니다. :)');
+    }
+  };
     
   if (isLoading) {
     return <div>Loading...</div>;
@@ -90,6 +117,12 @@ export default function TodoList() {
                 onChange={() => toggleIsDoneHandler(todo.id, todo.isDone)}
                 className="form-checkbox h-5 w-5 text-green-500 rounded"
               />
+              <button
+                    onClick={() => handleDeleteConfirmation(todo.id)}
+                    className="bg-red-500 w-14 rounded-2xl"
+                  >
+                    삭제
+                  </button>
             </div>
           </li>
         ))}
