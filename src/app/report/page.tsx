@@ -8,21 +8,21 @@ async function ReportPage() {
   const doneList = todosList.filter((item) => item.isDone === true);
 
   return (
-    <main className="h-screen flex justify-center">
-      <article>
-        <div className="flex flex-col">
-          <h1 className="text-2xl mb-3.5 text-center">할일 통계</h1>
-          <p className="mt-3.5 leading-loose">
-            현재 <span className="font-semibold ">{todosList.length}개</span>의 할일이
-            있습니다.
-            <br />
-            해야할 할일은 <span className="font-semibold">{doingList.length}개</span>, 끝낸 할일은{' '}
-            <span className="font-semibold">{doneList.length}개</span>가 있습니다.
-          </p>
-        </div>
-      </article>
-    </main>
-  );
+    <main className="h-screen flex flex-col justify-start pt-20"> 
+  <article>
+    <div className="flex flex-col items-center">
+      <h1 className="text-2xl mb-3.5 text-center">할일 통계</h1>
+      <p className="mt-3.5 leading-loose">
+        현재 <span className="font-bold text-red-500">{todosList.length}개</span>의 할일이
+        있습니다.
+        <br />
+        해야할 할일은 <span className="font-bold text-red-500">{doingList.length}개</span>, 끝낸 할일은{' '}
+        <span className="font-bold text-red-500">{doneList.length}개</span>가 있습니다.
+      </p>
+    </div>
+  </article>
+</main>
+ )
 }
 
 export default ReportPage;

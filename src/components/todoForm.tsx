@@ -39,14 +39,14 @@ export default function TodoForm() {
   return (
     <form className="flex flex-col space-y-4 items-center mt-5" onSubmit={handleSubmit}>
       <input
-        className="w-full p-2 border rounded shadow-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+        className="w-2/4 p-2 border rounded shadow-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
         placeholder="Title"
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
       <input
-        className="w-full p-2 border rounded shadow-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+        className="w-2/4 p-2 border rounded shadow-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
         placeholder="Content"
         type="text"
         value={content}

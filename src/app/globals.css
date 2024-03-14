@@ -4,8 +4,8 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-start-rgb: 128, 128, 128; /* 회색 시작 */
+  --background-end-rgb: 128, 128, 128; /* 회색 끝 */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,6 +17,8 @@
 }
 
 body {
+  background-color: rgb(32, 35, 47); /* 중간 회색 */
+  color: rgb(var(--foreground-rgb));
 }
 
 @layer utilities {

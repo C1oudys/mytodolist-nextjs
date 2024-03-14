@@ -1,12 +1,11 @@
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center text-center">
-      <video autoPlay loop muted src="/assets/justdovideo.mp4" style={{ marginTop: '30px', maxWidth: '100%', height: 'auto' }} />
-      <br />
-      <h1>Just Do!!</h1>
-      <br />
-      <h2>TodoList - Next.Js</h2>
+    <main className="flex flex-col items-center justify-center">
+      <video autoPlay loop muted src="/assets/justdovideo.mp4" className="mt-8 w-full max-w-lg rounded-md shadow-lg" />
+      <div className="mt-8 text-center">
+        <h1 className="text-4xl text-white-500 font-bold">Just Do!!</h1>
+        <h2 className="mt-4 text-2xl font-semibold text-gray-600">TodoList - Next.Js</h2>
+      </div>
     </main>
   );
 }
-

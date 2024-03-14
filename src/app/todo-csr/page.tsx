@@ -8,7 +8,9 @@ import ReportRouterButton from '@/components/reportRouter';
 function TodoCsrPage() {
   return (
     <>
-      <ReportRouterButton />
+       <div className="flex justify-center"> 
+        <ReportRouterButton />
+      </div>
       <TodoForm />
       <TodoList />
     </>

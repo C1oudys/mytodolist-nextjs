@@ -63,7 +63,7 @@ export default function TodoList() {
       <h2 className="text-xl font-bold my-4">Doing</h2>
       <ul>
         {doingList.map((todo) => (
-          <li key={todo.id} className="bg-white shadow-md rounded-lg p-4 mb-4 flex justify-between items-center">
+          <li key={todo.id} className="bg-white text-black shadow-md rounded-lg p-4 mb-4 flex justify-between items-center">
             <div>
               <p className="text-lg font-semibold">{todo.title}</p>
               <p>{todo.content}</p>
@@ -80,7 +80,7 @@ export default function TodoList() {
       <h2 className="text-xl font-bold my-4">Done</h2>
       <ul>
         {doneList.map((todo) => (
-          <li key={todo.id} className="bg-white shadow-md rounded-lg p-4 mb-4 flex justify-between items-center">
+          <li key={todo.id} className="bg-white text-black shadow-md rounded-lg p-4 mb-4 flex justify-between items-center">
             <div>
               <p className={`text-lg font-semibold ${todo.isDone ? "line-through" : ""}`}>{todo.title}</p>
               <p className={`${todo.isDone ? "line-through" : ""}`}>{todo.content}</p>
