@@ -2,7 +2,7 @@ import React from 'react';
 import { CompanyInfo } from '../types';
 
 async function AboutPage() {
-  const response = await fetch(`http://localhost:3000/api/company`);
+  const response = await fetch(`http://localhost:4000/companyInfo`);
   const { data }: { data: CompanyInfo } = await response.json();
 
   return (
